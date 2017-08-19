@@ -1,2 +1,2 @@
-newspaper3k==0.2.2
+praw
 vaderSentiment==2.5

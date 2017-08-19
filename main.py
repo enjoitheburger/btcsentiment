@@ -1,40 +1,48 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from newspaper import Article
+import praw
 
-# TODO: Find a way to get a reliable number of sources to feed into the sentiment analyzer
-url = "https://www.cnbc.com/2017/08/18/bitcoin-cash-surges-as-investors-bet-on-its-faster-processing-speeds.html"
+reddit = praw.Reddit(client_id='05YgxbyHyGZmlQ',
+                     client_secret='OI3RqQKPfjb1Y0lgaJQlCjhtQ1c',
+                     user_agent='my user agent')
 
-article = Article(url)
-article.download()
-article.parse()
-print("{:-<65}".format("This is the text I'm going to analyze"))
-print(article.text)
-print("{:-<65}".format("End of text"))
+# Top submissions in /r/bitcoin
+submissions = reddit.subreddit('bitcoin').hot(limit=15)
 
-# --- examples -------
-sentences = ["VADER is smart, handsome, and funny.",      # positive sentence example
-            "VADER is not smart, handsome, nor funny.",   # negation sentence example
-            "VADER is smart, handsome, and funny!",       # punctuation emphasis handled correctly (sentiment intensity adjusted)
-            "VADER is very smart, handsome, and funny.",  # booster words handled correctly (sentiment intensity adjusted)
-            "VADER is VERY SMART, handsome, and FUNNY.",  # emphasis for ALLCAPS handled
-            "VADER is VERY SMART, handsome, and FUNNY!!!",# combination of signals - VADER appropriately adjusts intensity
-            "VADER is VERY SMART, uber handsome, and FRIGGIN FUNNY!!!",# booster words & punctuation make this close to ceiling for score
-            "The book was good.",                                     # positive sentence
-            "The book was kind of good.",                 # qualified positive sentence is handled correctly (intensity adjusted)
-            "The plot was good, but the characters are uncompelling and the dialog is not great.", # mixed negation sentence
-            "At least it isn't a horrible book.",         # negated negative sentence with contraction
-            "Make sure you :) or :D today!",              # emoticons handled
-            "Today SUX!",                                 # negative slang with capitalization emphasis
-            "Today only kinda sux! But I'll get by, lol"  # mixed sentiment example with slang and constrastive conjunction "but"
-             ]
+
+# Average the sentiment scores to get a -1 to 1 score
+def average_scores(sentiments, total_count):
+    for key in sentiments:
+        sentiments[key] = sentiments[key]/total_count
 
 analyzer = SentimentIntensityAnalyzer()
-for sentence in sentences:
-    vs = analyzer.polarity_scores(sentence)
-    print("{:-<65} {}".format(sentence, str(vs)))
+overallSentiment = {'positive': 0, 'negative': 0, 'neutral': 0, 'compound': 0}
+totalSubmissions = 0
+for submission in submissions:
+    if submission.stickied:
+        continue
+    totalSubmissions += 1
+    submissionSentiment = {'positive': 0, 'negative': 0, 'neutral': 0, 'compound': 0}
+    totalComments = 0
+    for comment in submission.comments.list():
+        # some comments are a pagination object MoreComments, maybe follow these threads in the future
+        if hasattr(comment, 'body'):
+            vs = analyzer.polarity_scores(comment.body)
+            submissionSentiment['positive'] += vs['pos']
+            submissionSentiment['negative'] += vs['neg']
+            submissionSentiment['neutral']  += vs['neu']
+            submissionSentiment['compound'] += vs['compound']
+            totalComments += 1
 
-btc = analyzer.polarity_scores(article.text)
-print("{:-<65} {}".format('Our custom BTC article', str(btc)))
+    average_scores(submissionSentiment, totalComments)
 
-# TODO: Aggregate sentiments and decide to buy/sell
+    print("{:-<65} {}".format(submission.title, str(submissionSentiment)))
 
+    overallSentiment['positive'] += submissionSentiment['positive']
+    overallSentiment['negative'] += submissionSentiment['negative']
+    overallSentiment['neutral']  += submissionSentiment['neutral']
+    overallSentiment['compound'] += submissionSentiment['compound']
+
+
+# Average the score to get a -1 to 1 score
+average_scores(overallSentiment, totalSubmissions)
+print("{:-<65} {}".format('Overall Sentiment from /r/bitcoin', str(overallSentiment)))

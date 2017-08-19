@@ -6,18 +6,13 @@ Python version 3.4.1
 
 # Sample Output
 
-VADER is smart, handsome, and funny.----------------------------- {'pos': 0.746, 'neu': 0.254, 'neg': 0.0, 'compound': 0.8316}  
-VADER is not smart, handsome, nor funny.------------------------- {'pos': 0.0, 'neu': 0.354, 'neg': 0.646, 'compound': -0.7424}  
-VADER is smart, handsome, and funny!----------------------------- {'pos': 0.752, 'neu': 0.248, 'neg': 0.0, 'compound': 0.8439}  
-VADER is very smart, handsome, and funny.------------------------ {'pos': 0.701, 'neu': 0.299, 'neg': 0.0, 'compound': 0.8545}  
-VADER is VERY SMART, handsome, and FUNNY.------------------------ {'pos': 0.754, 'neu': 0.246, 'neg': 0.0, 'compound': 0.9227}  
-VADER is VERY SMART, handsome, and FUNNY!!!---------------------- {'pos': 0.767, 'neu': 0.233, 'neg': 0.0, 'compound': 0.9342}  
-VADER is VERY SMART, uber handsome, and FRIGGIN FUNNY!!!--------- {'pos': 0.706, 'neu': 0.294, 'neg': 0.0, 'compound': 0.9469}  
-The book was good.----------------------------------------------- {'pos': 0.492, 'neu': 0.508, 'neg': 0.0, 'compound': 0.4404}  
-The book was kind of good.--------------------------------------- {'pos': 0.343, 'neu': 0.657, 'neg': 0.0, 'compound': 0.3832}  
-The plot was good, but the characters are uncompelling and the dialog is not great. {'pos': 0.094, 'neu': 0.579, 'neg': 0.327, 'compound': -0.7042}  
-At least it isn't a horrible book.------------------------------- {'pos': 0.363, 'neu': 0.637, 'neg': 0.0, 'compound': 0.431}  
-Make sure you :) or :D today!------------------------------------ {'pos': 0.706, 'neu': 0.294, 'neg': 0.0, 'compound': 0.8633}  
-Today SUX!------------------------------------------------------- {'pos': 0.0, 'neu': 0.221, 'neg': 0.779, 'compound': -0.5461}  
-Today only kinda sux! But I'll get by, lol----------------------- {'pos': 0.251, 'neu': 0.569, 'neg': 0.179, 'compound': 0.2228}  
-Our custom BTC article------------------------------------------- {'pos': 0.116, 'neu': 0.842, 'neg': 0.042, 'compound': 0.9728}  
+/r/Bitcoin FAQ - Newcomers please read--------------------------- {'neutral': 0.809442542787286, 'positive': 0.1516332518337407, 'negative': 0.03649877750611246, 'compound': 0.26485378973105106}  
+Price Thread [August 13, 2017]----------------------------------- {'neutral': 0.8317582417582426, 'positive': 0.10592087912087911, 'negative': 0.06233186813186813, 'compound': 0.15668461538461526}  
+Welcme to crypto------------------------------------------------- {'neutral': 0.8100499999999998, 'positive': 0.10875000000000001, 'negative': 0.08125, 'compound': 0.1339}  
+I miss the days Bitcoin was more about fighing against the criminal banking/governments, we don't talk much about it anymore. {'neutral': 0.7958959276018097, 'positive': 0.11280090497737552, 'negative': 0.09130769230769231, 'compound': 0.08951809954751135}  
+Segwit is activating. Lets take a moment to thank everyone------- {'neutral': 0.7200535714285714, 'positive': 0.24146428571428571, 'negative': 0.0385, 'compound': 0.2680892857142857}  
+Wall Street's biggest bear thinks bitcoin will surge to $6,000--- {'neutral': 0.8320789473684209, 'positive': 0.05928947368421052, 'negative': 0.1086315789473684, 'compound': -0.0781578947368421}  
+Bitcoin ABC = Asic-Boost Cash. Everybody needs to know it was purely created to allow miners to exploit asic boost and is not Lightning Network compatible. {'neutral': 0.7965757575757575, 'positive': 0.08787878787878789, 'negative': 0.11554545454545453, 'compound': -0.03653030303030304}  
+With no replay protection + maximum disruption to exchanges, weeks of deposits/withdrawal delays, Bitmain is hoping to destroy both the legacy chain and B2X: to siphon the value to its 93% controlled/mined B*CH {'neutral': 0.7175, 'positive': 0.15755555555555556, 'negative': 0.12494444444444446, 'compound': 0.0737}  
+AMD Factory edition---------------------------------------------- {'neutral': 0.85525, 'positive': 0.10087499999999999, 'negative': 0.04375, 'compound': 0.0611}  
+Antpool mined 3 nearly empty blocks !?--------------------------- {'neutral': 0.7756153846153848, 'positive': 0.10315384615384615, 'negative': 0.12128205128205129, 'compound': -0.10313333333333335}  
