@@ -15,5 +15,6 @@ Wall Street's biggest bear thinks bitcoin will surge to $6,000--- {'neutral': 0.
 Bitcoin ABC = Asic-Boost Cash. Everybody needs to know it was purely created to allow miners to exploit asic boost and is not Lightning Network compatible. {'neutral': 0.7965757575757575, 'positive': 0.08787878787878789, 'negative': 0.11554545454545453, 'compound': -0.03653030303030304}  
 With no replay protection + maximum disruption to exchanges, weeks of deposits/withdrawal delays, Bitmain is hoping to destroy both the legacy chain and B2X: to siphon the value to its 93% controlled/mined B*CH {'neutral': 0.7175, 'positive': 0.15755555555555556, 'negative': 0.12494444444444446, 'compound': 0.0737}  
 AMD Factory edition---------------------------------------------- {'neutral': 0.85525, 'positive': 0.10087499999999999, 'negative': 0.04375, 'compound': 0.0611}  
-Antpool mined 3 nearly empty blocks !?--------------------------- {'neutral': 0.7756153846153848, 'positive': 0.10315384615384615, 'negative': 0.12128205128205129, 'compound': -0.10313333333333335}
+Antpool mined 3 nearly empty blocks !?--------------------------- {'neutral': 0.7756153846153848, 'positive': 0.10315384615384615, 'negative': 0.12128205128205129, 'compound': -0.10313333333333335}  
+Overall Sentiment from /r/bitcoin-------------------------------- {'negative': 0.08310111498937411, 'positive': 0.14154219028137077, 'neutral': 0.7753598469410281, 'compound': 0.09365541831777979}
 ```
